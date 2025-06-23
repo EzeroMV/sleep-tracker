@@ -1,2 +1,2 @@
 # sleep-tracker
-Схема и файл Erwin
+Схема и файл Erwin и UML диаграммы
