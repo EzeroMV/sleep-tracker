@@ -1,0 +1,177 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 YaBrowser/25.4.0.0 Safari/537.36" version="27.1.6">
+  <diagram name="Страница — 1" id="gYPlUU_W6cCv9sCLNpig">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZpZBBepYEaaKQ1G6ayrZ-1" value="Внесение сеанса сна" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-710" y="180" width="1580" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="ZpZBBepYEaaKQ1G6ayrZ-2" value="Сервер" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-1">
+          <mxGeometry x="20" width="1560" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-23" value="Рассчитать продолжительность сна" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2">
+          <mxGeometry x="620" y="60" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-26" value="Запрос на внесение в БД" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2">
+          <mxGeometry x="790" y="75" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2" source="Zi2oIBtyhY2eTWnX4HEd-23" target="Zi2oIBtyhY2eTWnX4HEd-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-7" value="Принять и обработать запрос на внесение информации в БД" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2">
+          <mxGeometry x="230" y="65.94" width="190" height="48.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2" source="Zi2oIBtyhY2eTWnX4HEd-8" target="Zi2oIBtyhY2eTWnX4HEd-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-8" value="Проверить аутентификацию и внесенные данные" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2">
+          <mxGeometry x="450" y="60" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-2" source="Zi2oIBtyhY2eTWnX4HEd-7" target="Zi2oIBtyhY2eTWnX4HEd-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460.1199999999999" y="331.6800000000003" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZpZBBepYEaaKQ1G6ayrZ-3" value="Веб-приложение" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-1">
+          <mxGeometry x="20" y="180" width="1560" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-1" value="" style="ellipse;fillColor=strokeColor;html=1;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-3">
+          <mxGeometry x="20" y="45" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-2" value="Ожидание ввода данных о сеансе сна" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-3">
+          <mxGeometry x="80" y="30" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-3" source="Zi2oIBtyhY2eTWnX4HEd-2" target="Zi2oIBtyhY2eTWnX4HEd-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-3" source="Zi2oIBtyhY2eTWnX4HEd-1" target="Zi2oIBtyhY2eTWnX4HEd-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-5" value="Запрос на внесение в БД" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-3">
+          <mxGeometry x="240" y="45" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-3" source="Zi2oIBtyhY2eTWnX4HEd-2" target="Zi2oIBtyhY2eTWnX4HEd-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZpZBBepYEaaKQ1G6ayrZ-4" value="БД" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-1">
+          <mxGeometry x="20" y="300" width="1560" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-4" source="Zi2oIBtyhY2eTWnX4HEd-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1210" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-28" value="Принять и обработать запрос на внесение информации в БД" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-4">
+          <mxGeometry x="800" y="65.94" width="190" height="48.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-57" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="ZpZBBepYEaaKQ1G6ayrZ-4" source="Zi2oIBtyhY2eTWnX4HEd-28" target="Zi2oIBtyhY2eTWnX4HEd-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1220" y="550" as="targetPoint" />
+            <mxPoint x="970" y="550" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-30" value="Сохранить полученные данные" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-4">
+          <mxGeometry x="1020" y="60" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-58" value="" style="ellipse;html=1;shape=endState;fillColor=strokeColor;" vertex="1" parent="ZpZBBepYEaaKQ1G6ayrZ-4">
+          <mxGeometry x="1210" y="74.99999999999994" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-32" value="Вывод статистики и графиков" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-710" y="710" width="2110" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-33" value="Сервер" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-32">
+          <mxGeometry x="20" width="2090" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-37" value="Запрос на получение данных из БД" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-33">
+          <mxGeometry x="490" y="39.06" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-47" value="Принять и обработать запрос на получение данных от сервера" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-33">
+          <mxGeometry x="240" y="30" width="190" height="48.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=15.000000000000002;entryPerimeter=0;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-33" source="Zi2oIBtyhY2eTWnX4HEd-47" target="Zi2oIBtyhY2eTWnX4HEd-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-33" source="Zi2oIBtyhY2eTWnX4HEd-65" target="Zi2oIBtyhY2eTWnX4HEd-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-65" value="Принять и обработать запрос на получение данных сервером" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-33">
+          <mxGeometry x="890" y="30" width="190" height="48.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-33" source="Zi2oIBtyhY2eTWnX4HEd-66" target="Zi2oIBtyhY2eTWnX4HEd-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-66" value="Получить данные из БД" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-33">
+          <mxGeometry x="1110" y="24.06" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-68" value="Запрос на получение данных веб-приложением" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-33">
+          <mxGeometry x="1290" y="39.06" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-39" value="Веб-приложение" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-32">
+          <mxGeometry x="20" y="120" width="2090" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-40" value="" style="ellipse;fillColor=strokeColor;html=1;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="20" y="45" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-41" value="Ожидание запроса на отображение статистики и графиков" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="80" y="30" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-39" source="Zi2oIBtyhY2eTWnX4HEd-41" target="Zi2oIBtyhY2eTWnX4HEd-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-39" source="Zi2oIBtyhY2eTWnX4HEd-40" target="Zi2oIBtyhY2eTWnX4HEd-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-44" value="Запрос на получение данных от сервера" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="240" y="45" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-39" source="Zi2oIBtyhY2eTWnX4HEd-41" target="Zi2oIBtyhY2eTWnX4HEd-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-39" source="Zi2oIBtyhY2eTWnX4HEd-70" target="Zi2oIBtyhY2eTWnX4HEd-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-70" value="Принять и обработать запрос на получение данных от сервера" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="1300" y="41.879999999999995" width="190" height="48.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-39" source="Zi2oIBtyhY2eTWnX4HEd-79">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1720" y="66" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-79" value="Получить данные от сервера" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="1540" y="35.940000000000055" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-39" source="Zi2oIBtyhY2eTWnX4HEd-82">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1930.0000000000005" y="65.94000000000005" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-82" value="Отрисовать и вывести графики пользователю" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="1720" y="35.940000000000055" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-86" value="" style="ellipse;html=1;shape=endState;fillColor=strokeColor;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-39">
+          <mxGeometry x="1930" y="50.940000000000055" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-46" value="БД" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-32">
+          <mxGeometry x="20" y="240" width="2090" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-46" source="Zi2oIBtyhY2eTWnX4HEd-52" target="Zi2oIBtyhY2eTWnX4HEd-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-52" value="Принять и обработать запрос на получение данных из БД" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-46">
+          <mxGeometry x="490" y="65.94" width="190" height="48.12" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Zi2oIBtyhY2eTWnX4HEd-46" source="Zi2oIBtyhY2eTWnX4HEd-54" target="Zi2oIBtyhY2eTWnX4HEd-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-54" value="Выбрать данные по входным параметрам" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-46">
+          <mxGeometry x="720" y="60" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zi2oIBtyhY2eTWnX4HEd-63" value="Запрос на получение данных сервером" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=0;notch2=20;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;whiteSpace=wrap;" vertex="1" parent="Zi2oIBtyhY2eTWnX4HEd-46">
+          <mxGeometry x="910" y="75" width="180" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
