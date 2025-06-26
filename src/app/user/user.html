@@ -1,0 +1,17 @@
+<h2>Пользователи</h2>
+
+<form (ngSubmit)="createUser()" #userForm="ngForm">
+  <input [(ngModel)]="newUser.userName" name="userName" placeholder="Имя пользователя" required />
+  <input [(ngModel)]="newUser.userPassword" name="userPassword" placeholder="Пароль" type="password" required />
+  <input [(ngModel)]="newUser.email" name="email" placeholder="Email" type="email" required />
+  <button type="submit" [disabled]="!userForm.valid">Создать пользователя</button>
+</form>
+
+<p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
+
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.userName }} ({{ user.email }})
+    <button (click)="deleteUser(user.userName)">Удалить</button>
+  </li>
+</ul>

@@ -1,0 +1,24 @@
+<h2>Факторы сна</h2>
+
+<!-- Форма для создания факторов сна -->
+<form (ngSubmit)="createFactors()">
+  <input [(ngModel)]="newFactors.sessionId" placeholder="ID сессии" type="number" required />
+  <label><input [(ngModel)]="newFactors.coffee" type="checkbox" /> Кофе</label>
+  <label><input [(ngModel)]="newFactors.alcohol" type="checkbox" /> Алкоголь</label>
+  <input [(ngModel)]="newFactors.stressScore" placeholder="Уровень стресса (0-5)" type="number" min="0" max="5" required />
+  <input [(ngModel)]="newFactors.physicalActivity" placeholder="Физическая активность (0-5)" type="number" min="0" max="5" required />
+  <button type="submit">Добавить</button>
+</form>
+
+<!-- Кнопка для получения данных по ID -->
+<div>
+  <input #factorsId type="number" placeholder="ID для получения" />
+  <button (click)="getFactors(+factorsId.value)">Получить</button>
+</div>
+
+<!-- Кнопка для удаления -->
+<div>
+  <button (click)="deleteFactors(newFactors.sessionId)" [disabled]="!newFactors.sessionId">Удалить</button>
+</div>
+
+<p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>

@@ -1,0 +1,22 @@
+<h2>Сессии сна</h2>
+
+<div>
+  <input [(ngModel)]="username" name="username" placeholder="Имя пользователя" />
+  <button (click)="loadSessions()">Найти сессии</button>
+</div>
+
+<form (ngSubmit)="createSession()" #sessionForm="ngForm">
+  <input [(ngModel)]="newSession.userName" name="userName" placeholder="Имя пользователя" required />
+  <input [(ngModel)]="newSession.timeSleep" name="timeSleep" placeholder="Время засыпания (ISO)" required />
+  <input [(ngModel)]="newSession.timeWakeup" name="timeWakeup" placeholder="Время пробуждения (ISO)" required />
+  <button type="submit" [disabled]="!sessionForm.valid">Создать сессию</button>
+</form>
+
+<p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
+
+<ul>
+  <li *ngFor="let session of sessions">
+    ID: {{ session.sessionId }} | Пользователь: {{ session.userName }} | Заснул: {{ session.timeSleep }} | Проснулся: {{ session.timeWakeup }}
+    <button (click)="deleteSession(session.sessionId)">Удалить</button>
+  </li>
+</ul>

@@ -1,0 +1,89 @@
+/* Основные стили для контейнера формы */
+form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+/* Стили для полей ввода */
+input {
+  margin: 5px 0;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для кнопок */
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Стили для контейнера поиска */
+div {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+
+/* Стили для списка сессий */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Стили для текста в списке */
+li span {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Стили для кнопки удаления в списке */
+li button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+}
+
+li button:hover {
+  background-color: #c82333;
+}

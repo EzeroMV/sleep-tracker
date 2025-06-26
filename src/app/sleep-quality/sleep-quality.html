@@ -1,0 +1,23 @@
+<h2>Качество сна</h2>
+
+<!-- Форма для создания качества сна -->
+<form (ngSubmit)="createQuality()">
+  <input [(ngModel)]="newQuality.sessionId" placeholder="ID сессии" type="number" required />
+  <input [(ngModel)]="newQuality.feelingScore" placeholder="Ощущения (0-5)" type="number" min="0" max="5" required />
+  <input [(ngModel)]="newQuality.sleepScore" placeholder="Качество сна (0-5)" type="number" min="0" max="5" required />
+  <input [(ngModel)]="newQuality.wakeupCount" placeholder="Количество пробуждений" type="number" min="0" required />
+  <button type="submit">Добавить</button>
+</form>
+
+<!-- Кнопка для получения данных по ID -->
+<div>
+  <input #qualityId type="number" placeholder="ID для получения" />
+  <button (click)="getQuality(+qualityId.value)">Получить</button>
+</div>
+
+<!-- Кнопка для удаления -->
+<div>
+  <button (click)="deleteQuality(newQuality.sessionId)" [disabled]="!newQuality.sessionId">Удалить</button>
+</div>
+
+<p *ngIf="errorMessage" style="color: red">{{ errorMessage }}</p>
