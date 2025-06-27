@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Качество сна</h2>
+
+  <div *ngIf="session" class="session-info">
+    <p><strong>Сессия №{{ session.sessionId }}</strong></p>
+    <p>От: {{ session.timeSleep }}</p>
+    <p>До: {{ session.timeWakeup }}</p>
+  </div>
+
+  <div class="form-section">
+    <label for="feeling">Оценка самочувствия (0–5):</label>
+    <input id="feeling" type="number" min="0" max="5" [(ngModel)]="newQuality.feelingScore" />
+
+    <label for="sleep">Оценка сна (0–5):</label>
+    <input id="sleep" type="number" min="0" max="5" [(ngModel)]="newQuality.sleepScore" />
+
+    <label for="wakeup">Количество пробуждений:</label>
+    <input id="wakeup" type="number" min="0" [(ngModel)]="newQuality.wakeupCount" />
+
+    <button (click)="createQuality()">Сохранить</button>
+  </div>
+
+  <div class="action-section">
+    <button (click)="getQuality(newQuality.sessionId)">Загрузить</button>
+    <button (click)="deleteQuality(newQuality.sessionId)">Удалить</button>
+  </div>
+
+  <div *ngIf="fetchedQuality" class="result-box">
+    <h3>Загружено:</h3>
+    <p><strong>Самочувствие:</strong> {{ fetchedQuality.feelingScore }}</p>
+    <p><strong>Сон:</strong> {{ fetchedQuality.sleepScore }}</p>
+    <p><strong>Пробуждений:</strong> {{ fetchedQuality.wakeupCount }}</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+  <button class="back-button" (click)="goBackToSessions()">← Назад к сессиям</button>
+</div>

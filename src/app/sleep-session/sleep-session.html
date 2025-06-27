@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Сессии сна для пользователя: {{ username }}</h2>
+
+  <div class="session-box">
+    <h3>Новая сессия сна</h3>
+
+    <label for="sleep">Время засыпания:</label>
+    <input id="sleep" type="datetime-local" [(ngModel)]="newSession.timeSleep" />
+
+    <label for="wakeup">Время пробуждения:</label>
+    <input id="wakeup" type="datetime-local" [(ngModel)]="newSession.timeWakeup" />
+
+    <button (click)="createSession()">Сохранить</button>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <h3>Мои сессии</h3>
+    <ul class="session-list">
+      <li *ngFor="let session of sessions">
+        <span><strong>С:</strong> {{ session.timeSleep }} <strong>по:</strong> {{ session.timeWakeup }}</span>
+
+        <div class="session-buttons">
+          <button (click)="deleteSession(session.sessionId)">Удалить</button>
+          <button (click)="goToQuality(session.sessionId)">Качество сна</button>
+          <button (click)="goToFactors(session.sessionId)">Факторы сна</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

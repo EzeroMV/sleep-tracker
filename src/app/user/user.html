@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Пользователи</h2>
+
+  <div class="form-section">
+    <label for="username">Имя пользователя:</label>
+    <input id="username" type="text" [(ngModel)]="newUser.userName" />
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" [(ngModel)]="newUser.email" />
+
+    <label for="password">Пароль:</label>
+    <input id="password" type="password" [(ngModel)]="newUser.userPassword" />
+
+    <button (click)="createUser()">Создать пользователя</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <h3>Список пользователей</h3>
+  <ul class="user-list">
+    <li *ngFor="let user of users">
+      <span>{{ user.userName }} ({{ user.email }})</span>
+      <div class="user-buttons">
+        <button (click)="deleteUser(user.userName)">Удалить</button>
+        <button (click)="goToSessions(user.userName)">Сессии сна</button>
+      </div>
+    </li>
+  </ul>
+</div>
