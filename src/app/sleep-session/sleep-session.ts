@@ -76,10 +76,10 @@ export class SleepSessionComponent implements OnInit {
   }
 
   goToQuality(sessionId: number): void {
-    window.location.href = `/sleep-quality?sessionId=${sessionId}`;
+    window.location.href = `/sleep-quality?sessionId=${sessionId}&user=${this.username}`;
   }
 
   goToFactors(sessionId: number): void {
-    window.location.href = `/sleep-factors?sessionId=${sessionId}`;
+    window.location.href = `/sleep-factors?sessionId=${sessionId}&user=${this.username}`;
   }
 }

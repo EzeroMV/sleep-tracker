@@ -20,7 +20,7 @@ export class SleepQualityComponent implements OnInit {
     sleepScore: 0,
     wakeupCount: 0,
   };
-
+  username: string = '';
   session: SleepSession | null = null;
   fetchedQuality: SleepQuality | null = null;
   successMessage: string | null = null;
@@ -30,7 +30,12 @@ export class SleepQualityComponent implements OnInit {
 
   ngOnInit(): void {
     const sessionId = Number(this.route.snapshot.queryParamMap.get('sessionId'));
-
+    const userParam = this.route.snapshot.queryParamMap.get('user');
+    if (userParam) {
+      this.username = userParam;
+    } else {
+      this.errorMessage = 'Имя пользователя не передано в URL';
+    }
     if (sessionId > 0) {
       this.newQuality.sessionId = sessionId;
 
@@ -95,7 +100,7 @@ export class SleepQualityComponent implements OnInit {
   }
 
   goBackToSessions(): void {
-    window.location.href = '/sleep-sessions';
+    window.location.href = `/sleep-sessions?user=${this.username}`;
   }
 
   private isValid(q: SleepQuality): boolean {
