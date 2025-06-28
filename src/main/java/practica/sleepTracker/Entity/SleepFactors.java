@@ -1,92 +1,95 @@
-    package practica.sleepTracker.Entity;
+package practica.sleepTracker.Entity;
 
-    import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
-    import jakarta.persistence.*;
-    import jakarta.validation.constraints.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
-    @Entity
-    @Table(name = "sleep_factors")
-    public class SleepFactors {
-        @Id
-        @Column(name = "sessionid")
-        private Integer sessionId;
-        
-        @OneToOne
-        @MapsId
-        @JoinColumn(name = "sessionid")
+@Entity
+@Table(name = "sleep_factors")
+public class SleepFactors {
 
-        @JsonBackReference
-        private SleepSession sleepSession;
-        
-        @Column(name = "coffee", nullable = false)
-        private Boolean coffee;
-        
-        @Column(name = "alcohol", nullable = false)
-        private Boolean alcohol;
-        @Min(0) @Max(5)
-        @Column(name = "stressscore", nullable = false)
-        private Integer stressScore;
-        @Min(0) @Max(5)
-        @Column(name = "physactiv", nullable = false)
-        private Integer physicalActivity;
+    @Id
+    @Column(name = "sessionid")
+    private Integer sessionId;
 
-        public Integer getSessionId() {
-            return sessionId;
-        }
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "sessionid")
 
-        public Integer getPhysicalActivity() {
-            return physicalActivity;
-        }
+    @JsonBackReference
+    private SleepSession sleepSession;
 
-        public boolean getCoffee() {
-            return coffee;
-        }
+    @Column(name = "coffee", nullable = false)
+    private Boolean coffee;
 
-        public boolean getAlcohol() {
-            return alcohol;
-        }
+    @Column(name = "alcohol", nullable = false)
+    private Boolean alcohol;
+    @Min(0)
+    @Max(5)
+    @Column(name = "stressscore", nullable = false)
+    private Integer stressScore;
+    @Min(0)
+    @Max(5)
+    @Column(name = "physactiv", nullable = false)
+    private Integer physicalActivity;
 
-        public Integer getStressScore() {
-            return stressScore;
-        }
-
-        public void setSessionId(Integer sessionId) {
-            this.sessionId = sessionId;
-        }
-
-        public void setPhysicalActivity(Integer physicalActivity) {
-            this.physicalActivity = physicalActivity;
-        }
-
-        public void setCoffee(boolean coffee) {
-            this.coffee = coffee;
-        }
-
-        public void setAlcohol(boolean alcohol) {
-            this.alcohol = alcohol;
-        }
-
-        public void setStressScore(Integer stressScore) {
-            this.stressScore = stressScore;
-        }
-
-        public SleepFactors() {
-        }
-
-        public SleepFactors(Integer sessionId, Integer physicalActivity, boolean coffee, boolean alcohol, Integer stressScore) {
-            this.sessionId = sessionId;
-            this.physicalActivity = physicalActivity;
-            this.coffee = coffee;
-            this.alcohol = alcohol;
-            this.stressScore = stressScore;
-        }
-
-        public SleepSession getSleepSession() {
-            return sleepSession;
-        }
-
-        public void setSleepSession(SleepSession sleepSession) {
-            this.sleepSession = sleepSession;
-        }
+    public Integer getSessionId() {
+        return sessionId;
     }
+
+    public Integer getPhysicalActivity() {
+        return physicalActivity;
+    }
+
+    public boolean getCoffee() {
+        return coffee;
+    }
+
+    public boolean getAlcohol() {
+        return alcohol;
+    }
+
+    public Integer getStressScore() {
+        return stressScore;
+    }
+
+    public void setSessionId(Integer sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public void setPhysicalActivity(Integer physicalActivity) {
+        this.physicalActivity = physicalActivity;
+    }
+
+    public void setCoffee(boolean coffee) {
+        this.coffee = coffee;
+    }
+
+    public void setAlcohol(boolean alcohol) {
+        this.alcohol = alcohol;
+    }
+
+    public void setStressScore(Integer stressScore) {
+        this.stressScore = stressScore;
+    }
+
+    public SleepFactors() {
+    }
+
+    public SleepFactors(Integer sessionId, Integer physicalActivity, boolean coffee, boolean alcohol, Integer stressScore) {
+        this.sessionId = sessionId;
+        this.physicalActivity = physicalActivity;
+        this.coffee = coffee;
+        this.alcohol = alcohol;
+        this.stressScore = stressScore;
+    }
+
+    public SleepSession getSleepSession() {
+        return sleepSession;
+    }
+
+    public void setSleepSession(SleepSession sleepSession) {
+        this.sleepSession = sleepSession;
+    }
+}

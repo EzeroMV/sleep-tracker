@@ -10,13 +10,14 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @Column(name = "username")
     private String userName;
-    
+
     @Column(name = "userpassword", nullable = false)
     private String userPassword;
-    
+
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
@@ -57,6 +58,12 @@ public class User {
     @JsonManagedReference
     private List<SleepSession> sleepSessions = new ArrayList<>();
 
-    public List<SleepSession> getSleepSessions() { return sleepSessions; }
+    public List<SleepSession> getSleepSessions() {
+        return sleepSessions;
+    }
+
+    public void setSleepSessions(List<SleepSession> sleepSessions) {
+        this.sleepSessions = sleepSessions;
+    }
 
 }

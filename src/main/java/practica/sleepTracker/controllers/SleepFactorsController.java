@@ -9,6 +9,7 @@ import practica.sleepTracker.service.SleepFactorsService;
 @CrossOrigin(origins = "http://localhost:4200") // Разрешаем запросы с Angular
 @RequestMapping("/api/sleep-factors")
 public class SleepFactorsController {
+
     private final SleepFactorsService sleepFactorsService;
 
     public SleepFactorsController(SleepFactorsService sleepFactorsService) {
