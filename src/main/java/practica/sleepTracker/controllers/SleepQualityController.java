@@ -1,8 +1,11 @@
 package practica.sleepTracker.controllers;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import practica.sleepTracker.Entity.SleepQuality;
+import practica.sleepTracker.repository.SleepQualityRepository;
 import practica.sleepTracker.service.SleepQualityService;
 
 @RestController
@@ -10,9 +13,11 @@ import practica.sleepTracker.service.SleepQualityService;
 @RequestMapping("/api/sleep-quality")
 public class SleepQualityController {
     private final SleepQualityService sleepQualityService;
+    private final SleepQualityRepository sleepQualityRepository;
 
-    public SleepQualityController(SleepQualityService sleepQualityService) {
+    public SleepQualityController(SleepQualityService sleepQualityService,SleepQualityRepository sleepQualityRepository) {
         this.sleepQualityService = sleepQualityService;
+        this.sleepQualityRepository = sleepQualityRepository;
     }
 
     @PostMapping
@@ -26,6 +31,11 @@ public class SleepQualityController {
         SleepQuality quality = sleepQualityService.getSleepQualityBySessionId(sessionId);
         return ResponseEntity.ok(quality);
     }
+    @GetMapping("/user/{userName}")
+    public ResponseEntity<List<SleepQuality>> getAllQualitiesByUser(@PathVariable String userName) {
+    List<SleepQuality> qualities = sleepQualityRepository.findBySleepSession_UserName(userName);
+    return ResponseEntity.ok(qualities);
+}
 
     @DeleteMapping("/{sessionId}")
     public ResponseEntity<Void> deleteSleepQuality(@PathVariable Integer sessionId) {
