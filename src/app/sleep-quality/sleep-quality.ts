@@ -26,7 +26,7 @@ export class SleepQualityComponent implements OnInit {
   successMessage: string | null = null;
   errorMessage: string | null = null;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const sessionId = Number(this.route.snapshot.queryParamMap.get('sessionId'));

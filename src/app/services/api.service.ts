@@ -10,7 +10,7 @@ import { SleepSession } from '../models/sleep-session.model';
 export class ApiService {
   private baseUrl = 'http://localhost:8080/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Обработка ошибок
   private handleError(error: HttpErrorResponse) {
@@ -105,7 +105,7 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
   getSleepSessionById(sessionId: number): Observable<SleepSession> {
-  return this.http.get<SleepSession>(`${this.baseUrl}/sessions/${sessionId}`);
-}
+    return this.http.get<SleepSession>(`${this.baseUrl}/sessions/${sessionId}`);
+  }
 
 }

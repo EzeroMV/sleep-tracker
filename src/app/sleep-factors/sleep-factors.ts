@@ -22,13 +22,13 @@ export class SleepFactorsComponent implements OnInit {
     physicalActivity: 0,
   };
   username: string = '';
-  
+
   session: SleepSession | null = null;
   fetchedFactors: SleepFactors | null = null;
   errorMessage: string | null = null;
   successMessage: string | null = null;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const sessionId = Number(this.route.snapshot.queryParamMap.get('sessionId'));
