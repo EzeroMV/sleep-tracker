@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   selector: 'app-user',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './user.html', 
+  templateUrl: './user.html',
   styleUrls: ['./user.css'],
 })
 export class UserComponent implements OnInit {
@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   newUser: User = { userName: '', userPassword: '', email: '' };
   errorMessage: string | null = null;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -47,9 +47,7 @@ export class UserComponent implements OnInit {
     });
   }
   goToSessions(username: string): void {
-  window.location.href = `/sleep-sessions?user=${encodeURIComponent(username)}`;
-;
-}
-
-
+    window.location.href = `/sleep-sessions?user=${encodeURIComponent(username)}`;
+    ;
+  }
 }

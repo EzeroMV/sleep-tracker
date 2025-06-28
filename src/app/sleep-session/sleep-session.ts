@@ -18,7 +18,7 @@ export class SleepSessionComponent implements OnInit {
   errorMessage: string | null = null;
   username: string = '';
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const userParam = this.route.snapshot.queryParamMap.get('user');

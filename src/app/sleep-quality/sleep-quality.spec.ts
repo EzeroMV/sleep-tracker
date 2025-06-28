@@ -10,7 +10,7 @@ describe('SleepQuality', () => {
     await TestBed.configureTestingModule({
       imports: [SleepQuality]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SleepQuality);
     component = fixture.componentInstance;
