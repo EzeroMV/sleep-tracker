@@ -12,10 +12,11 @@ import practica.sleepTracker.service.SleepQualityService;
 @CrossOrigin(origins = "http://localhost:4200") // Разрешаем запросы с Angular
 @RequestMapping("/api/sleep-quality")
 public class SleepQualityController {
+
     private final SleepQualityService sleepQualityService;
     private final SleepQualityRepository sleepQualityRepository;
 
-    public SleepQualityController(SleepQualityService sleepQualityService,SleepQualityRepository sleepQualityRepository) {
+    public SleepQualityController(SleepQualityService sleepQualityService, SleepQualityRepository sleepQualityRepository) {
         this.sleepQualityService = sleepQualityService;
         this.sleepQualityRepository = sleepQualityRepository;
     }
@@ -31,11 +32,12 @@ public class SleepQualityController {
         SleepQuality quality = sleepQualityService.getSleepQualityBySessionId(sessionId);
         return ResponseEntity.ok(quality);
     }
+
     @GetMapping("/user/{userName}")
     public ResponseEntity<List<SleepQuality>> getAllQualitiesByUser(@PathVariable String userName) {
-    List<SleepQuality> qualities = sleepQualityRepository.findBySleepSession_UserName(userName);
-    return ResponseEntity.ok(qualities);
-}
+        List<SleepQuality> qualities = sleepQualityRepository.findBySleepSession_UserName(userName);
+        return ResponseEntity.ok(qualities);
+    }
 
     @DeleteMapping("/{sessionId}")
     public ResponseEntity<Void> deleteSleepQuality(@PathVariable Integer sessionId) {

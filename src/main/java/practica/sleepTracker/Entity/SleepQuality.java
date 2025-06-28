@@ -9,20 +9,23 @@ import jakarta.validation.constraints.Min;
 @Entity
 @Table(name = "sleep_quality")
 public class SleepQuality {
+
     @Id
     @Column(name = "sessionid")
     private Integer sessionId;
 
     @OneToOne
-    @MapsId 
+    @MapsId
     @JoinColumn(name = "sessionid")
     @JsonBackReference
     private SleepSession sleepSession;
-    
-    @Min(0) @Max(5)
+
+    @Min(0)
+    @Max(5)
     @Column(name = "feelingscore", nullable = false)
     private Integer feelingScore;
-    @Min(0) @Max(5)
+    @Min(0)
+    @Max(5)
     @Column(name = "sleepscore", nullable = false)
     private Integer sleepScore;
     @Min(0)
@@ -36,31 +39,32 @@ public class SleepQuality {
     public Integer getSessionId() {
         return sessionId;
     }
-    public Integer getFeelingScore()
-    {
+
+    public Integer getFeelingScore() {
         return feelingScore;
     }
-    public Integer getSleepScore()
-    {
+
+    public Integer getSleepScore() {
         return sleepScore;
-    }   
+    }
 
     public void setWakeupCount(Integer wakeupCount) {
         this.wakeupCount = wakeupCount;
     }
+
     public void setSessionId(Integer sessionId) {
         this.sessionId = sessionId;
     }
-    public void setFeelingScore(Integer feelingScore)
-    {
+
+    public void setFeelingScore(Integer feelingScore) {
         this.feelingScore = feelingScore;
     }
-    public void setSleepScore(Integer sleepScore)
-    {
+
+    public void setSleepScore(Integer sleepScore) {
         this.sleepScore = sleepScore;
     }
 
-    public SleepQuality(){
+    public SleepQuality() {
     }
 
     public SleepQuality(Integer sessionId, Integer feelingScore, Integer sleepScore, Integer wakeupCount) {

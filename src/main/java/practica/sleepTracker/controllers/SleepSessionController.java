@@ -15,6 +15,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200") // Разрешаем запросы с Angular
 @RequestMapping("/api/sleep-sessions")
 public class SleepSessionController {
+
     private final SleepSessionService sleepSessionService;
     private final SleepSessionRepository sleepSessionRepository;
 
@@ -28,14 +29,13 @@ public class SleepSessionController {
         SleepSession createdSession = sleepSessionService.createSleepSession(sleepSession);
         return ResponseEntity.ok(createdSession);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<SleepSession> getSessionById(@PathVariable Integer id) {
-    Optional<SleepSession> session = sleepSessionRepository.findById(id);
-    return session.map(ResponseEntity::ok)
-                  .orElse(ResponseEntity.notFound().build());
+        Optional<SleepSession> session = sleepSessionRepository.findById(id);
+        return session.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
-
-
 
     @GetMapping("/user/{username}")
     public ResponseEntity<List<SleepSession>> getSleepSessionsByUser(@PathVariable String username) {
@@ -48,11 +48,11 @@ public class SleepSessionController {
         sleepSessionService.deleteSleepSession(sessionId);
         return ResponseEntity.noContent().build();
     }
+
     @GetMapping("/duration-with-quality/{userName}")
     public ResponseEntity<List<SleepDurationWithScore>> getDurationsWithQuality(@PathVariable String userName) {
-    List<SleepDurationWithScore> result = sleepSessionRepository.findDurationsWithScore(userName);
-    return ResponseEntity.ok(result);
-}
+        List<SleepDurationWithScore> result = sleepSessionRepository.findDurationsWithScore(userName);
+        return ResponseEntity.ok(result);
+    }
 
 }
-

@@ -11,8 +11,10 @@ import practica.sleepTracker.dto.SleepDurationWithScore;
 import java.util.List;
 
 public interface SleepSessionRepository extends JpaRepository<SleepSession, Integer> {
+
     List<SleepSession> findByUser(User user);
-      @Query(value = """
+
+    @Query(value = """
     SELECT 
         s.sessionid AS sessionId, 
         EXTRACT(EPOCH FROM (s.timewakeup - s.timesleep)) / 3600 AS sleepTime,
@@ -24,7 +26,6 @@ public interface SleepSessionRepository extends JpaRepository<SleepSession, Inte
     WHERE 
         s.username = :userName
     """, nativeQuery = true)
-List<SleepDurationWithScore> findDurationsWithScore(@Param("userName") String userName);
-
+    List<SleepDurationWithScore> findDurationsWithScore(@Param("userName") String userName);
 
 }
