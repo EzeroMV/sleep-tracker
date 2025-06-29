@@ -1,0 +1,27 @@
+<div class="user-container">
+  <h2>Пользователи</h2>
+
+  <div class="button-row">
+    <button (click)="goToLogin()">Войти</button>
+    <button (click)="goToRegister()">Зарегистрироваться</button>
+  </div>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <table *ngIf="users.length > 0">
+    <thead>
+      <tr>
+        <th>Имя пользователя</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userName }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="users.length === 0">Пользователи не найдены.</p>
+</div>
