@@ -1,0 +1,113 @@
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.session-info {
+  background-color: #eef6ff;
+  border-left: 4px solid #2196f3;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 16px;
+  padding: 10px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.action-section {
+  margin-top: 24px;
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.result-box {
+  margin-top: 20px;
+  background-color: #f1f8e9;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 14px;
+}
+
+.success-message {
+  color: #388e3c;
+  background-color: #e8f5e9;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 14px;
+}
+
+.back-button {
+  background-color: #388e3c;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #388e3c;
+}

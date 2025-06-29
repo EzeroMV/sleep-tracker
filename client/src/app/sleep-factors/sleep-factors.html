@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>Факторы сна</h2>
+
+  <div *ngIf="session" class="session-info">
+    <p><strong>Сессия:</strong>
+      От {{ session.timeSleep }}
+      До {{ session.timeWakeup }}</p>
+  </div>
+
+  <div class="form-section">
+    <label>
+      <input type="checkbox" [(ngModel)]="newFactors.coffee" />
+      Кофеин перед сном
+    </label>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="newFactors.alcohol" />
+      Алкоголь перед сном
+    </label>
+
+    <label for="stress">Уровень стресса (0–5):</label>
+    <input id="stress" type="number" min="0" max="5" [(ngModel)]="newFactors.stressScore" />
+
+    <label for="activity">Физическая активность (0–5):</label>
+    <input id="activity" type="number" min="0" max="5" [(ngModel)]="newFactors.physicalActivity" />
+
+    <button (click)="createFactors()">Сохранить</button>
+  </div>
+
+  <div class="action-section">
+    <button (click)="getFactors(newFactors.sessionId)">Загрузить</button>
+    <button (click)="deleteFactors(newFactors.sessionId)">Удалить</button>
+  </div>
+
+  <div *ngIf="fetchedFactors" class="result-box">
+    <h3>Загружено:</h3>
+    <p><strong>Сессия:</strong> {{ fetchedFactors.sessionId }}</p>
+    <p><strong>Кофеин:</strong> {{ fetchedFactors.coffee ? 'Да' : 'Нет' }}</p>
+    <p><strong>Алкоголь:</strong> {{ fetchedFactors.alcohol ? 'Да' : 'Нет' }}</p>
+    <p><strong>Стресс:</strong> {{ fetchedFactors.stressScore }}</p>
+    <p><strong>Активность:</strong> {{ fetchedFactors.physicalActivity }}</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+  <button class="back-button" (click)="goBackToSessions()">← Назад к сессиям</button>
+</div>
