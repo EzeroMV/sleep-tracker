@@ -2,8 +2,15 @@ package practica.sleepTracker.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 @Entity
 @Table(name = "sleep_factors")
@@ -77,7 +84,8 @@ public class SleepFactors {
     public SleepFactors() {
     }
 
-    public SleepFactors(Integer sessionId, Integer physicalActivity, boolean coffee, boolean alcohol, Integer stressScore) {
+    public SleepFactors(Integer sessionId, Integer physicalActivity, boolean coffee, boolean alcohol,
+            Integer stressScore) {
         this.sessionId = sessionId;
         this.physicalActivity = physicalActivity;
         this.coffee = coffee;

@@ -65,6 +65,10 @@ public class SleepSession {
         this.userName = user != null ? user.getUserName() : null;
     }
 
+    public void setUserName(String username) {
+        this.userName = username;
+    }
+
     public void setSessionId(Integer sessionId) {
         this.sessionId = sessionId;
     }
@@ -75,8 +79,8 @@ public class SleepSession {
 
     public void setTimeWakeup(LocalDateTime timeWakeup) {
         if (timeWakeup.isBefore(getTimeSleep())) {
-            throw new IllegalArgumentException("Время пробуждения должно быть позже времени сна"); 
-        }else {
+            throw new IllegalArgumentException("Время пробуждения должно быть позже времени сна");
+        } else {
             this.timeWakeup = timeWakeup;
         }
     }
