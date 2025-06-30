@@ -44,6 +44,7 @@ button {
 
 button:hover {
   background-color: #45a049;
+
 }
 
 .sessions-list ul {
@@ -65,9 +66,10 @@ button:hover {
 }
 
 .sessions-list button {
-  background-color: #2196f3;
+  background-color: #4aaf50;
   padding: 6px 10px;
   font-size: 13px;
+  align-self: center;
 }
 
 .sessions-list button:hover {
@@ -97,4 +99,22 @@ button:hover {
   font-weight: bold;
   margin-top: 20px;
   text-align: center;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.chart-legend .legend-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 3px;
 }

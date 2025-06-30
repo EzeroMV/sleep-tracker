@@ -30,14 +30,6 @@ export class SleepQualityComponent implements OnInit {
 
   ngOnInit(): void {
     const sessionId = Number(this.route.snapshot.queryParamMap.get('sessionId'));
-    const userParam = this.route.snapshot.queryParamMap.get('user');
-
-    if (userParam) {
-      this.username = userParam;
-    } else {
-      this.errorMessage = 'Имя пользователя не передано в URL';
-      return;
-    }
 
     if (sessionId > 0) {
       this.newQuality.sessionId = sessionId;
@@ -56,7 +48,6 @@ export class SleepQualityComponent implements OnInit {
       this.errorMessage = 'ID сессии не передан в URL';
     }
   }
-
   createQuality(): void {
     this.clearMessages();
 
@@ -106,7 +97,7 @@ export class SleepQualityComponent implements OnInit {
   }
 
   goBackToSessions(): void {
-    window.location.href = `/sleep-sessions?user=${this.username}`;
+    window.location.href = '/sleep-sessions';
   }
 
   private isValid(q: SleepQuality): boolean {

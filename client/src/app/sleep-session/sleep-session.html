@@ -23,9 +23,19 @@
     </ul>
   </div>
 
-  <div id="sleepChart" style="width: 100%; height: 400px; margin-top: 30px;"></div>
   <div style="text-align: center; margin-top: 20px;">
     <button (click)="drawSleepChart()">Показать график сна</button>
+  </div>
+
+  <div id="sleepChart" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+
+  <div class="chart-legend">
+    <div><span class="legend-box" style="background-color: #000000;"></span> 0 – Очень плохо</div>
+    <div><span class="legend-box" style="background-color: #f44336;"></span> 1 – Плохо</div>
+    <div><span class="legend-box" style="background-color: #ff9800;"></span> 2 – Ниже среднего</div>
+    <div><span class="legend-box" style="background-color: #ffeb3b;"></span> 3 – Средне</div>
+    <div><span class="legend-box" style="background-color: #cddc39;"></span> 4 – Хорошо</div>
+    <div><span class="legend-box" style="background-color: #4caf50;"></span> 5 – Отлично</div>
   </div>
 
   <div style="text-align: center; margin-top: 20px;">
@@ -61,3 +71,4 @@
 
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 </div>
+<button (click)="logout()">Выйти</button>

@@ -20,8 +20,12 @@ export class LoginComponent {
   login(): void {
     this.apiService.loginUser(this.user).subscribe({
       next: () => {
+        // Сохраняем информацию о входе
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('user', this.user.userName);
+
+        // Переход на страницу сессий
         this.router.navigate(['/sleep-sessions'], {
-          queryParams: { user: this.user.userName }
         });
       },
       error: () => {
@@ -29,4 +33,5 @@ export class LoginComponent {
       }
     });
   }
+
 }

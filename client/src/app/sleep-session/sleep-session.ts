@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { SleepSession } from '../models/sleep-session.model';
 import { SleepQuality } from '../models/sleep-quality.model';
 import * as echarts from 'echarts';
 import { lastValueFrom } from 'rxjs';
 
-
 interface SleepDuration {
   sessionId: number;
-  sleepTime: string; // в часах
+  sleepTime: string;
   sleepScore: number;
 }
 
@@ -34,23 +32,15 @@ export class SleepSessionComponent implements OnInit {
   };
 
   errorMessage: string | null = null;
-  username: string = '';
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    const userParam = this.route.snapshot.queryParamMap.get('user');
-    if (userParam) {
-      this.username = userParam;
-      this.newSession.userName = this.username;
-      this.loadSessions();
-    } else {
-      this.errorMessage = 'Имя пользователя не передано в URL';
-    }
+    this.loadSessions();
   }
 
   loadSessions(): void {
-    this.apiService.getSleepSessionsByUser(this.username).subscribe({
+    this.apiService.getSleepSessions().subscribe({
       next: (sessions) => {
         this.sessions = sessions;
       },
@@ -70,7 +60,6 @@ export class SleepSessionComponent implements OnInit {
     }
 
     const sessionToSend: Partial<SleepSession> = {
-      userName: this.username,
       timeSleep: this.toIsoStringNoMs(this.newSession.timeSleep),
       timeWakeup: this.toIsoStringNoMs(this.newSession.timeWakeup),
     };
@@ -96,20 +85,24 @@ export class SleepSessionComponent implements OnInit {
   }
 
   goToQuality(sessionId: number): void {
-    window.location.href = `/sleep-quality?sessionId=${sessionId}&user=${this.username}`;
+    window.location.href = `/sleep-quality?sessionId=${sessionId}`;
   }
 
   goToFactors(sessionId: number): void {
-    window.location.href = `/sleep-factors?sessionId=${sessionId}&user=${this.username}`;
+    window.location.href = `/sleep-factors?sessionId=${sessionId}`;
   }
 
   drawSleepChart(): void {
-    this.apiService.getSleepDurationsWithQuality(this.username).subscribe({
+    this.apiService.getSleepDurationsWithQuality().subscribe({
       next: (durations: SleepDuration[]) => {
         this.durations = durations;
 
         const chartDom = document.getElementById('sleepChart');
         if (!chartDom) return;
+
+        if (echarts.getInstanceByDom(chartDom)) {
+          echarts.dispose(chartDom);
+        }
 
         const myChart = echarts.init(chartDom);
 
@@ -138,9 +131,14 @@ export class SleepSessionComponent implements OnInit {
           },
           series: [
             {
+              name: 'Продолжительность сна',
               data: bars,
               type: 'bar'
             }
+          ],
+          color: [
+            '#000000', '#f44336', '#ff9800',
+            '#ffeb3b', '#cddc39', '#4caf50'
           ]
         };
 
@@ -154,15 +152,16 @@ export class SleepSessionComponent implements OnInit {
 
   private getColorByScore(score: number): string {
     switch (score) {
-      case 0: return '#000000';  // чёрный
-      case 1: return '#f44336';  // красный
-      case 2: return '#ff9800';  // оранжевый
-      case 3: return '#ffeb3b';  // жёлтый
-      case 4: return '#cddc39';  // жёлто-зелёный (лайм)
-      case 5: return '#4caf50';  // зелёный
+      case 0: return '#000000';
+      case 1: return '#f44336';
+      case 2: return '#ff9800';
+      case 3: return '#ffeb3b';
+      case 4: return '#cddc39';
+      case 5: return '#4caf50';
       default: return '#9e9e9e';
     }
   }
+
   tableVisible = false;
 
   tableData: {
@@ -205,5 +204,23 @@ export class SleepSessionComponent implements OnInit {
     });
   }
 
-}
+  logout(): void {
+    this.apiService.logout().subscribe({
+      next: () => {
+        localStorage.clear();
+        window.location.href = '/login';
+      },
+      error: () => {
+        alert('Не удалось выйти из системы');
+      }
+    });
+  }
 
+  isLoggedIn(): boolean {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  }
+
+  getUsername(): string | null {
+    return localStorage.getItem('user');
+  }
+}

@@ -22,103 +22,114 @@ export class ApiService {
     } else {
       errorMessage = `Код ошибки: ${error.status}, сообщение: ${error.message}`;
     }
-    return throwError(errorMessage);
+    return throwError(() => errorMessage);
   }
 
-  // Методы для работы с пользователями
-  createUser(user: any): Observable<any> {
+  // Пользователи
+  createUser(user: User): Observable<any> {
     return this.http
-      .post(`${this.baseUrl}/users/register`, user)
+      .post(`${this.baseUrl}/users/register`, user, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   getUser(username: string): Observable<any> {
     return this.http
-      .get(`${this.baseUrl}/users/${username}`)
+      .get(`${this.baseUrl}/users/${username}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   getAllUsers(): Observable<any> {
     return this.http
-      .get(`${this.baseUrl}/users`)
+      .get(`${this.baseUrl}/users`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   deleteUser(username: string): Observable<void> {
     return this.http
-      .delete<void>(`${this.baseUrl}/users/${username}`)
+      .delete<void>(`${this.baseUrl}/users/${username}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
-  // Методы для работы с сессиями сна
-  createSleepSession(session: any): Observable<any> {
+  // Сессии сна
+  createSleepSession(session: Partial<SleepSession>): Observable<SleepSession> {
     return this.http
-      .post(`${this.baseUrl}/sleep-sessions`, session)
+      .post<SleepSession>(`${this.baseUrl}/sleep-sessions`, session, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
-  getSleepSessionsByUser(username: string): Observable<any> {
+  getSleepSessions(): Observable<SleepSession[]> {
     return this.http
-      .get(`${this.baseUrl}/sleep-sessions/user/${username}`)
+      .get<SleepSession[]>(`${this.baseUrl}/sleep-sessions`, { withCredentials: true })
       .pipe(catchError(this.handleError));
+  }
+
+  getSleepSessionById(sessionId: number): Observable<SleepSession> {
+    return this.http
+      .get<SleepSession>(`${this.baseUrl}/sleep-sessions/${sessionId}`, { withCredentials: true });
   }
 
   deleteSleepSession(sessionId: number): Observable<void> {
     return this.http
-      .delete<void>(`${this.baseUrl}/sleep-sessions/${sessionId}`)
+      .delete<void>(`${this.baseUrl}/sleep-sessions/${sessionId}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
-  // Методы для работы с качеством сна
+  getSleepDurationsWithQuality(): Observable<SleepDurationWithQuality[]> {
+    return this.http
+      .get<SleepDurationWithQuality[]>(`${this.baseUrl}/sleep-sessions/duration-with-quality`, {
+        withCredentials: true,
+      });
+  }
+
+  // Качество сна
   createSleepQuality(quality: any): Observable<any> {
     return this.http
-      .post(`${this.baseUrl}/sleep-quality`, quality)
+      .post(`${this.baseUrl}/sleep-quality`, quality, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   getSleepQuality(sessionId: number): Observable<any> {
     return this.http
-      .get(`${this.baseUrl}/sleep-quality/${sessionId}`)
+      .get(`${this.baseUrl}/sleep-quality/${sessionId}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   deleteSleepQuality(sessionId: number): Observable<void> {
     return this.http
-      .delete<void>(`${this.baseUrl}/sleep-quality/${sessionId}`)
+      .delete<void>(`${this.baseUrl}/sleep-quality/${sessionId}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
-  // Методы для работы с факторами сна
+  // Факторы сна
   createSleepFactors(factors: any): Observable<any> {
     return this.http
-      .post(`${this.baseUrl}/sleep-factors`, factors)
+      .post(`${this.baseUrl}/sleep-factors`, factors, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   getSleepFactors(sessionId: number): Observable<any> {
     return this.http
-      .get(`${this.baseUrl}/sleep-factors/${sessionId}`)
+      .get(`${this.baseUrl}/sleep-factors/${sessionId}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   deleteSleepFactors(sessionId: number): Observable<void> {
     return this.http
-      .delete<void>(`${this.baseUrl}/sleep-factors/${sessionId}`)
+      .delete<void>(`${this.baseUrl}/sleep-factors/${sessionId}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
-  getSleepSessionById(sessionId: number): Observable<SleepSession> {
-    return this.http.get<SleepSession>(`${this.baseUrl}/sleep-sessions/${sessionId}`);
+
+  // Аутентификация
+  loginUser(user: User): Observable<string> {
+    return this.http.post(`${this.baseUrl}/users/login`, user, {
+      withCredentials: true,
+      responseType: 'text',
+    });
   }
 
-  getSleepDurationsWithQuality(userName: string): Observable<SleepDurationWithQuality[]> {
-    return this.http.get<SleepDurationWithQuality[]>(
-      `${this.baseUrl}/sleep-sessions/duration-with-quality/${userName}`
-    );
+  logout(): Observable<any> {
+    return this.http.post(`${this.baseUrl}/sleep-sessions/logout`, {}, {
+      withCredentials: true,
+    });
   }
-
-  loginUser(user: User): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/login`, user, { responseType: 'text' });
-  }
-
-
 }
