@@ -1,0 +1,19 @@
+<div class="login-container">
+  <h2>Вход</h2>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+    <label for="username">Имя пользователя:</label>
+    <input type="text" id="username" name="userName" [(ngModel)]="user.userName" />
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="userPassword" [(ngModel)]="user.userPassword" />
+
+    <button type="submit">Войти</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <p class="register-link">Нет аккаунта?
+    <a routerLink="/register">Зарегистрироваться</a>
+  </p>
+</div>

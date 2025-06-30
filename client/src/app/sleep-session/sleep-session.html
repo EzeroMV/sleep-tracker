@@ -1,0 +1,74 @@
+<div class="container">
+  <h2>Сессии сна</h2>
+
+  <div class="form-section">
+    <label for="sleepTime">Время засыпания:</label>
+    <input id="sleepTime" type="datetime-local" [(ngModel)]="newSession.timeSleep" />
+
+    <label for="wakeupTime">Время пробуждения:</label>
+    <input id="wakeupTime" type="datetime-local" [(ngModel)]="newSession.timeWakeup" />
+
+    <button (click)="createSession()">Создать сессию</button>
+  </div>
+
+  <div class="sessions-list">
+    <h3>Ваши сессии:</h3>
+    <ul>
+      <li *ngFor="let s of sessions">
+        {{ s.timeSleep }} → {{ s.timeWakeup }}
+        <button (click)="goToQuality(s.sessionId)">Качество</button>
+        <button (click)="goToFactors(s.sessionId)">Факторы</button>
+        <button (click)="deleteSession(s.sessionId)">Удалить</button>
+      </li>
+    </ul>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button (click)="drawSleepChart()">Показать график сна</button>
+  </div>
+
+  <div id="sleepChart" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+
+  <div class="chart-legend">
+    <div><span class="legend-box" style="background-color: #000000;"></span> 0 – Очень плохо</div>
+    <div><span class="legend-box" style="background-color: #f44336;"></span> 1 – Плохо</div>
+    <div><span class="legend-box" style="background-color: #ff9800;"></span> 2 – Ниже среднего</div>
+    <div><span class="legend-box" style="background-color: #ffeb3b;"></span> 3 – Средне</div>
+    <div><span class="legend-box" style="background-color: #cddc39;"></span> 4 – Хорошо</div>
+    <div><span class="legend-box" style="background-color: #4caf50;"></span> 5 – Отлично</div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button (click)="loadTableData()">Показать таблицу по всем сессиям</button>
+  </div>
+
+  <table *ngIf="tableVisible" class="summary-table">
+    <thead>
+      <tr>
+        <th>Сессия (от → до)</th>
+        <th>Оценка сна</th>
+        <th>Самочувствие</th>
+        <th>Пробуждения</th>
+        <th>Кофеин</th>
+        <th>Алкоголь</th>
+        <th>Стресс</th>
+        <th>Активность</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableData">
+        <td>{{ row.session.timeSleep }} → {{ row.session.timeWakeup }}</td>
+        <td>{{ row.quality?.sleepScore ?? '-' }}</td>
+        <td>{{ row.quality?.feelingScore ?? '-' }}</td>
+        <td>{{ row.quality?.wakeupCount ?? '-' }}</td>
+        <td>{{ row.factors?.coffee ? 'Да' : row.factors ? 'Нет' : '-' }}</td>
+        <td>{{ row.factors?.alcohol ? 'Да' : row.factors ? 'Нет' : '-' }}</td>
+        <td>{{ row.factors?.stressScore ?? '-' }}</td>
+        <td>{{ row.factors?.physicalActivity ?? '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>
+<button (click)="logout()">Выйти</button>
