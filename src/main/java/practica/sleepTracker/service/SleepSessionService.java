@@ -45,8 +45,8 @@ public class SleepSessionService {
     }
 
     public List<SleepSession> getSleepSessionsByUser(String username) {
-        User user = userRepository.findById(username).orElseThrow(()
-                -> new IllegalArgumentException("Пользователь не найден"));
+        User user = userRepository.findById(username)
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь не найден"));
 
         return sleepSessionRepository.findByUser(user);
     }

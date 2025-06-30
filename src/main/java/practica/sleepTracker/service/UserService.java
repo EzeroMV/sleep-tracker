@@ -30,7 +30,7 @@ public class UserService {
     }
 
     public User getUserByUsername(String username) {
-        return userRepository.findById(username)
+        return userRepository.findByUserName(username)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 

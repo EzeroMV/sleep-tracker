@@ -15,17 +15,17 @@ public interface SleepSessionRepository extends JpaRepository<SleepSession, Inte
     List<SleepSession> findByUser(User user);
 
     @Query(value = """
-    SELECT 
-        s.sessionid AS sessionId, 
-        EXTRACT(EPOCH FROM (s.timewakeup - s.timesleep)) / 3600 AS sleepTime,
-        q.sleepscore AS sleepScore
-    FROM 
-        sleep_sessions s
-    JOIN 
-        sleep_quality q ON s.sessionid = q.sessionid
-    WHERE 
-        s.username = :userName
-    """, nativeQuery = true)
+            SELECT
+                s.sessionid AS sessionId,
+                EXTRACT(EPOCH FROM (s.timewakeup - s.timesleep)) / 3600 AS sleepTime,
+                q.sleepscore AS sleepScore
+            FROM
+                sleep_sessions s
+            JOIN
+                sleep_quality q ON s.sessionid = q.sessionid
+            WHERE
+                s.username = :userName
+            """, nativeQuery = true)
     List<SleepDurationWithScore> findDurationsWithScore(@Param("userName") String userName);
 
 }
